@@ -1,6 +1,10 @@
-import React from 'react';
-import { useCart } from '../context/CartContext';
-import '../styles/cart.css'; // Ajusta la ruta si el archivo está en otra carpeta
+import React from 'react'; 
+import { Link } from 'react-router-dom'; // Para la navegación
+import { useCart } from '../context/CartContext'; // Para manejar el carrito
+// Iconos
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faHouse, faCartShopping, faUser } from "@fortawesome/free-solid-svg-icons";
+
 
 
 function CartPage() {
@@ -8,7 +12,24 @@ function CartPage() {
 
   return (
     <div className="cart-container">
-      <h1>StreetKicks</h1>
+      <header className="header">
+        <h1 className="logo">Tienda de Zapatillas</h1>
+        <nav className="nav">
+          
+          <Link to="/" className="nav-link">
+            <FontAwesomeIcon icon={faHouse} /> Inicio
+          </Link>
+          
+          <Link to="/login" className="nav-link">
+              <FontAwesomeIcon icon={faUser}/> Iniciar sesión
+            </Link>
+
+          <Link to="/cart" className="nav-link">
+            <FontAwesomeIcon icon={faCartShopping} /> Carrito ({cartItems.length})
+          </Link>
+          
+        </nav>
+      </header>
       
       {cartItems.length === 0 ? (
         <p>No tienes productos en tu carrito.</p>

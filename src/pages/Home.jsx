@@ -3,10 +3,15 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { useCart } from '../context/CartContext';
 import { useAuth } from '../context/AuthContext';
+//Iconos
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHouse } from '@fortawesome/free-solid-svg-icons';
+import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
+import { faUser } from '@fortawesome/free-solid-svg-icons';
 
 function Home() {
   const { addToCart, cartItems } = useCart();
-  const { user } = useAuth();
+  const { user, logout } = useAuth();
 
   const shoes = [
     {
@@ -36,22 +41,55 @@ function Home() {
       discount: '25% de descuento',
       image: 'https://nikearprod.vtexassets.com/arquivos/ids/812141-1000-1000?v=638382458013470000&width=1000&height=1000&aspect=true',
     },
+    {
+      id: 4,
+      name: 'Ojotas Adilette 22',
+      description: 'Ojotas cómodas para hombre y mujer',
+      price: 49999,
+      image: 'https://assets.adidas.com/images/w_383,h_383,f_auto,q_auto,fl_lossy,c_fill,g_auto/60b707ee13ab4065b678ef19ca471015_9366/ojotas-adilette-22.jpg',
+    },
+    {
+      id: 5,
+      name: 'Botines Copa Pure 2 Elite',
+      description: 'Botines de fútbol para terreno blando',
+      price: 349999,
+      image: 'https://assets.adidas.com/images/w_383,h_383,f_auto,q_auto,fl_lossy,c_fill,g_auto/2b479195a5294c688105d9a27831fbca_9366/botines-copa-pure-2-elite-tejidos-para-terreno-blando.jpg',
+    },
+    {
+      id: 6,
+      name: 'Zapatillas Grand Court Alpha',
+      description: 'Zapatillas clásicas de tenis',
+      price: 79999,
+      image: 'https://assets.adidas.com/images/w_383,h_383,f_auto,q_auto,fl_lossy,c_fill,g_auto/ff38044f10c94578a61da2377b02e702_9366/zapatillas-grand-court-alpha.jpg',
+    },
   ];
+
+  const handleLogout = () => {
+    logout();  // Llama a la función de logout que debe estar en tu AuthContext
+  };
 
   return (
     <div className="home-container">
       <header className="header">
         <h1 className="logo">Tienda de Zapatillas</h1>
         <nav className="nav">
-          <Link to="/cart" className="nav-link">Carrito ({cartItems.length})</Link>
+          <Link to="/" className="nav-link">
+            <FontAwesomeIcon icon={faHouse} /> Inicio
+          </Link>
+
           {user ? (
-            <>
-              <span className="nav-link">{user.email}</span>
-              {user.role === "admin" && <Link to="/admin" className="nav-link">Panel Admin</Link>}
-            </>
+            <button onClick={handleLogout} className="nav-link">
+              <FontAwesomeIcon icon={faUser} /> Cerrar sesión
+            </button>
           ) : (
-            <Link to="/login" className="nav-link">Iniciar sesión</Link>
+            <Link to="/login" className="nav-link">
+              <FontAwesomeIcon icon={faUser} /> Iniciar sesión
+            </Link>
           )}
+
+          <Link to="/cart" className="nav-link">
+            <FontAwesomeIcon icon={faCartShopping} /> Carrito ({cartItems.length})
+          </Link>
         </nav>
       </header>
 

@@ -55,6 +55,11 @@ const AuthProvider = ({ children }) => {
   );
 };
 
+const logout = () => {
+  setUser(null);  // Borra el usuario del contexto
+  // Aquí puedes eliminar el token o hacer cualquier otra limpieza necesaria
+};
+
 const useAuth = () => useContext(AuthContext);
 
 export { AuthProvider, useAuth };

@@ -1,101 +1,151 @@
 /* styles.css */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, sans-serif;
-  }
-  
-  .home-container {
-    width: 100%;
-    padding: 20px;
-  }
-  
-  .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #222;
-    padding: 15px 30px;
-    color: white;
-  }
-  
-  .logo {
-    font-size: 1.5rem;
-    color: #ff6347;
-  }
-  
-  .nav {
-    display: flex;
-    gap: 20px;
-  }
-  
-  .nav-link {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-  }
-  
-  .nav-link:hover {
-    text-decoration: underline;
-  }
-  
-  .shoes-list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    margin-top: 20px;
-  }
-  
-  .shoe-item {
-    width: calc(33.333% - 20px);
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s ease-in-out;
-  }
-  
-  .shoe-item:hover {
-    transform: scale(1.05);
-  }
-  
-  .shoe-image {
-    width: 100%;
-    height: auto;
-  }
-  
-  .shoe-details {
-    padding: 10px;
-  }
-  
-  .shoe-name {
-    font-size: 1.2rem;
-    font-weight: bold;
-    margin-bottom: 5px;
-  }
-  
-  .shoe-description, .shoe-price {
-    margin-bottom: 5px;
-  }
-  
-  .shoe-old-price {
-    font-size: 0.9rem;
-    color: #888;
-  }
-  
-  button {
-    padding: 10px;
-    width: 100%;
-    background-color: #ff6347;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-weight: bold;
-  }
-  
-  button:hover {
-    background-color: #e55347;
-  }
-  
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+.home-container {
+  width: 100%;
+  padding: 20px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #222;
+  padding: 15px 30px;
+  color: white;
+}
+
+.logo {
+  font-size: 1.5rem;
+  color: #ff6347;
+}
+
+.nav {
+  display: flex;
+  gap: 20px;
+}
+
+.nav-link {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.nav-link:hover {
+  text-decoration: underline;
+}
+
+.shoes-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.shoe-item {
+  width: calc(33.333% - 20px);
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease-in-out;
+}
+
+.shoe-item:hover {
+  transform: scale(1.05);
+}
+
+.shoe-image {
+  width: 100%;
+  height: auto;
+}
+
+.shoe-details {
+  padding: 10px;
+}
+
+.shoe-name {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.shoe-description, .shoe-price {
+  margin-bottom: 5px;
+}
+
+.shoe-old-price {
+  font-size: 0.9rem;
+  color: #888;
+}
+button {
+  padding: 10px;
+  width: 100%;
+  background-color: #ff6347;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+button:hover {
+  background-color: #e55347;
+}
+
+
+/*carrito*/
+
+.cart-items {
+display: flex;
+flex-direction: column;
+gap: 20px;  
+}
+
+.cart-item {
+display: flex;
+align-items: center;
+justify-content: space-between;
+padding: 15px;
+border-bottom: 1px solid #ccc; /* Separador entre los elementos */
+}
+
+.cart-item-image {
+width: 80px; /* Ajusta el ancho de la imagen */
+height: 80px; /* Ajusta la altura de la imagen */
+object-fit: cover; /* Asegura que la imagen no se distorsione */
+margin-right: 15px; /* Espacio entre la imagen y el resto de los detalles */
+}
+
+.cart-item-details {
+flex-grow: 1; /* Hace que los detalles ocupen el espacio restante */
+}
+
+.cart-item-details h3 {
+margin: 0;
+font-size: 1.1rem;
+}
+
+.cart-item-details p {
+margin: 5px 0;
+font-size: 0.9rem;
+}
+
+.cart-item button {
+padding: 8px 12px;
+background-color: #f44336; /* Color rojo para el botón */
+color: white;
+border: none;
+border-radius: 5px;
+cursor: pointer;
+font-size: 0.9rem;
+}
+
+.cart-item button:hover {
+background-color: #d32f2f; /* Color rojo más oscuro al pasar el ratón */
+}
