@@ -4,7 +4,7 @@ import AdminPage from './pages/AdminPage';
 import Home from './pages/Home';
 import Login from './pages/Login';
 import Register from './pages/Register';
-
+import 'bootstrap/dist/css/bootstrap.min.css';
 import CartPage from './pages/CartPage';
 import './styles.css';
 
